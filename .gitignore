@@ -1,0 +1,7 @@
+__pycache__/
+*.exe
+*.cnf
+*.aux
+*.log
+*.out
+preview-*.png

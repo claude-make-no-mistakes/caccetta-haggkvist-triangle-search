@@ -1,0 +1,48 @@
+seed=101 budget=300000 band=52 long_percent=0 baseline=51
+round=1 trials=75000 round_best=51 final=51 differing_arcs=0
+round=2 trials=150000 round_best=51 final=51 differing_arcs=0
+round=3 trials=225000 round_best=51 final=52 differing_arcs=1
+round=4 trials=300000 round_best=51 final=53 differing_arcs=2
+best=51 best_perturbed=52 trials=300000 feasible=105818 accepted=12469 reverse_repairs=0 accepted_beyond_band=0
+seed=102 budget=300000 band=56 long_percent=0 baseline=51
+round=1 trials=75000 round_best=51 final=95 differing_arcs=27
+round=2 trials=150000 round_best=51 final=119 differing_arcs=45
+round=3 trials=225000 round_best=51 final=158 differing_arcs=65
+round=4 trials=300000 round_best=51 final=168 differing_arcs=68
+best=51 best_perturbed=53 trials=300000 feasible=258605 accepted=28336 reverse_repairs=0 accepted_beyond_band=0
+seed=103 budget=300000 band=60 long_percent=5 baseline=51
+round=1 trials=75000 round_best=51 final=126 differing_arcs=55
+round=2 trials=150000 round_best=51 final=329 differing_arcs=123
+round=3 trials=225000 round_best=51 final=459 differing_arcs=168
+round=4 trials=300000 round_best=51 final=520 differing_arcs=177
+best=51 best_perturbed=53 trials=300000 feasible=283235 accepted=28116 reverse_repairs=209 accepted_beyond_band=253
+seed=104 budget=300000 band=68 long_percent=10 baseline=51
+round=1 trials=75000 round_best=51 final=176 differing_arcs=71
+round=2 trials=150000 round_best=51 final=420 differing_arcs=153
+round=3 trials=225000 round_best=51 final=595 differing_arcs=215
+round=4 trials=300000 round_best=51 final=693 differing_arcs=237
+best=51 best_perturbed=52 trials=300000 feasible=289056 accepted=27838 reverse_repairs=365 accepted_beyond_band=441
+seed=105 budget=300000 band=76 long_percent=15 baseline=51
+round=1 trials=75000 round_best=51 final=194 differing_arcs=84
+round=2 trials=150000 round_best=51 final=467 differing_arcs=174
+round=3 trials=225000 round_best=51 final=789 differing_arcs=272
+round=4 trials=300000 round_best=51 final=1072 differing_arcs=335
+best=51 best_perturbed=53 trials=300000 feasible=292405 accepted=25808 reverse_repairs=606 accepted_beyond_band=695
+seed=106 budget=300000 band=85 long_percent=20 baseline=51
+round=1 trials=75000 round_best=51 final=171 differing_arcs=75
+round=2 trials=150000 round_best=51 final=511 differing_arcs=209
+round=3 trials=225000 round_best=51 final=1045 differing_arcs=343
+round=4 trials=300000 round_best=51 final=1452 differing_arcs=425
+best=51 best_perturbed=53 trials=300000 feasible=293873 accepted=24420 reverse_repairs=822 accepted_beyond_band=941
+seed=107 budget=300000 band=104 long_percent=15 baseline=51
+round=1 trials=75000 round_best=51 final=195 differing_arcs=93
+round=2 trials=150000 round_best=51 final=595 differing_arcs=230
+round=3 trials=225000 round_best=51 final=1396 differing_arcs=406
+round=4 trials=300000 round_best=51 final=1856 differing_arcs=533
+best=51 best_perturbed=52 trials=300000 feasible=291990 accepted=24762 reverse_repairs=901 accepted_beyond_band=952
+seed=108 budget=300000 band=128 long_percent=25 baseline=51
+round=1 trials=75000 round_best=51 final=198 differing_arcs=96
+round=2 trials=150000 round_best=51 final=794 differing_arcs=357
+round=3 trials=225000 round_best=51 final=2144 differing_arcs=1005
+round=4 trials=300000 round_best=51 final=4027 differing_arcs=1363
+best=51 best_perturbed=52 trials=300000 feasible=281143 accepted=22548 reverse_repairs=2393 accepted_beyond_band=3175

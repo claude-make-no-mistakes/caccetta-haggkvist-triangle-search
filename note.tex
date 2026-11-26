@@ -1,0 +1,260 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.9in]{geometry}
+\usepackage{amsmath,amsthm,booktabs}
+\usepackage[hidelinks]{hyperref}
+\DeclareMathSizes{10}{10}{7}{7}
+\DeclareMathSizes{9}{10}{7}{7}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\title{Deletion and forward-distance bounds near the sharp\\Caccetta--H\"aggkvist circulant}
+\author{Claude Make No Mistakes}
+\date{26 November 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Let the base oriented graph on \(3r\) cyclically labeled vertices contain
+the forward arcs of lengths \(1,\ldots,r-1\). We show that any oriented
+graph of minimum outdegree at least \(r\) with no directed triangle must delete
+at least \(r\) of these arcs. We also give a finite SAT certificate that
+for every \(n\ge15\), the minimum outdegree \(\lceil n/3\rceil\) forces a
+directed triangle if the maximum forward arc length is
+\(\lceil n/3\rceil+2\) or less in some cyclic labeling. The certificate uses
+15 vertices and is independent of \(n\).
+\end{abstract}
+
+For an arc \(u\to v\) in a given cyclic labeling of \(n\) vertices, its
+forward length is the representative of \(v-u\bmod n\) in
+\(\{1,\ldots,n-1\}\). An oriented graph has no loops or reciprocal arc pairs.
+The triangle case of the Caccetta--H\"aggkvist conjecture asks whether every
+oriented graph of order \(n\) and minimum outdegree at least \(n/3\) has a
+directed triangle. Hladk\'y, Kr\'al', and Norin prove the threshold
+\(0.3465n\) \cite{hkn}. At \(n=3r\), the graph with all forward lengths
+\(1,\ldots,r-1\) has minimum outdegree \(r-1\) and no directed triangle,
+since three such lengths sum to less than \(3r\). We call it the base graph.
+The results below use the geometry of that cyclic labeling.
+
+\section{The deletion bound}
+
+\begin{theorem}
+Let \(r\ge3\) and let \(D\) be an oriented graph on the base vertex set
+with minimum outdegree at least \(r\). If \(D\) has no directed triangle,
+then at least \(r\) base arcs are absent from \(D\).
+\end{theorem}
+
+\begin{proof}
+Write \(F\) for the absent base arcs and assume \(f=|F|\le r-1\).
+Call a vertex clean if no arc of \(F\) enters it. All vertex arithmetic
+below is modulo \(3r\). Every vertex has at least one new outgoing arc,
+where a new arc has length at least \(r\). A clean vertex has new arcs
+of length at most \(2r\), since any longer arc would reciprocate a
+retained incoming base arc.
+
+Suppose a new arc \(u\to v\) from a clean vertex \(u\) has length \(r+a\),
+with \(1\le a\le r\). For \(1\le j<a\), there is a base return path
+\[
+   v\ \longrightarrow\ u+2r+j\ \longrightarrow\ u .
+\]
+The last arc is retained, so every first arc is in \(F\). These \(a-1\)
+distinct deletions leave \(v\) in need of at least \(a\) new outgoing arcs.
+In particular, if both \(u\) and \(v\) are clean and \(v\to x\) is new of
+length \(r+b\), the sum \(2r+a+b\) must exceed \(3r\). A smaller sum closes
+a triangle with a retained base arc into \(u\), and equality makes the
+new arcs reciprocal. The two new arcs force at least \(a-1\) deletions
+leaving \(v\) and at least \(b-1\) leaving \(x\). Hence
+\(r-1\ge f\ge a+b-2\ge r-1\), so \(b=r+1-a\) is the only available new
+length parameter at \(v\). This is impossible for \(a\ge2\), since \(v\)
+then needs at least two new outgoing arcs. If \(a=1\), then \(b=r\) and
+all deletions leave \(x\), which makes \(x\) clean. Applying the already
+excluded \(a\ge2\) case to \(v\to x\) gives a contradiction. Thus every
+new arc between clean vertices has length \(r\).
+
+In fact no new arc anywhere has length \(2r\). If \(w\to x\) has this
+length, its \(r-1\) edge-disjoint base return paths
+\(x\to x+j\to w\) for \(1\le j\le r-1\) must each lose an arc. This uses
+all \(f\) deletions and confines their heads to
+\(\{x+1,\ldots,x+r\}\). In particular \(x\) is clean. A new step \(r\)
+from \(x\) reciprocates \(w\to x\), and every longer possible new step
+from \(x\) has a clean head. Thus \(x\) would have no new outgoing arc.
+
+Call a residue class modulo \(r\) clean if all three of its vertices
+are clean. There is at least one such class. Partition the residue
+cycle into gaps, each starting with a clean class and followed by
+the \(k\ge0\) nonclean classes up to the next clean class. If each gap
+with \(k\) nonclean classes had at least \(k+1\) incoming deletions,
+then \(f\ge r\). Hence some gap has exactly one deletion entering
+each of its \(k\) nonclean classes. Number these classes
+\(1,\ldots,k\) relative to its initial clean class.
+
+The three vertices in the initial clean class would form a triangle
+if all took step \(r\). Choose one, denoted \(u\), missing this step.
+It has a new arc \(u\to v\) of length \(r+t\), with \(1\le t\le r-1\).
+If \(t\ge k+2\), the forced deletion from \(v\) into \(u+2r+k+1\)
+enters the next clean class. If \(t=k+1\), the new arc has a clean
+head. Both are impossible. Thus \(1\le t\le k\), and \(v\) is the
+unique head of a deleted arc in class \(t\). The forced deletions
+above show that \(v\) needs at least \(t\) new outgoing arcs.
+
+For a new arc \(v\to x\) of length \(e\le2r-1\), the sum \(r+t+e\)
+must exceed \(3r\), by the surviving base arcs into \(u\) and the
+absence of reciprocal arcs. So the possible lengths lie in
+\(\{2r-t+1,\ldots,2r-1\}\), a set of size \(t-1\).
+Each longer new arc must reverse a deleted incoming base arc at \(v\),
+since step \(2r\) is impossible. There is exactly one possible
+reversal. To get \(t\) new arcs, \(v\) must take it and all \(t-1\)
+possible shorter lengths.
+
+If \(t=1\), the sole deletion into \(v\) is \(y\to v\) and the sole new
+arc at \(v\) reverses it. If the deleted length were at least two,
+the base return path \(y\to v-1\to v\) would survive. Its first arc
+enters the initial clean class and its second is distinct from the
+only deletion entering class 1. Thus \(y=v-1\), and \(y\) now needs
+two new outgoing arcs. Step \(r+1\) from \(y\) would have a clean
+head \(v+r\), and any larger new step would force a deletion into
+\(y+2r+1=v+2r\). That vertex is also clean. Consequently \(y\) can
+take only step \(r\), a contradiction.
+
+If \(t\ge2\), the forced step \(2r-1\) from \(v\) lands at \(u+t-1\).
+Its base return path through \(u+r\) has lengths \(r-t+1\) and \(t\).
+The first arc enters the initial clean class, so \((u+r)\to v\)
+must be the sole deleted arc entering \(v\). Its reversal forms the
+triangle \(v\to u+r\to u+r+1\to v\). The middle arc survives because
+the only deletion into class 1 is \(v\to u+2r+1\), already forced by
+\(t\ge2\). The last arc survives since it differs from \((u+r)\to v\).
+This exhausts the cases and proves \(f\ge r\).
+\end{proof}
+
+At order \(153\), the bound gives at least 51 deletions in every cyclic
+labeling. The degree condition also forces at least \(153+f\) added
+arcs, for at least 255 changes to directed arc membership.
+
+\begin{lemma}
+For \(r\ge3\), an oriented graph of minimum outdegree at least \(r\)
+that retains all base arcs contains at least \(r\) directed triangles.
+This bound is attained.
+\end{lemma}
+
+\begin{proof}
+Keep the base arcs and one selected new arc per vertex. For a residue
+class with all three selected lengths equal to \(r\), use its triangle.
+In every other class choose a vertex \(u\) with selected length \(d>r\).
+If \(d\ge r+2\), the arc has a two-edge base return path. If \(d=r+1\),
+follow the selected arc at its head \(v\), of length \(e\). For
+\(e\le2r-2\) there is a closing base arc into \(u\). Length \(2r-1\)
+would reciprocate the selected arc from \(u\). The only remaining
+option is \(e=2r\), as longer arcs reciprocate base arcs. In this
+case use one of the \(r-1\) two-edge base return paths for the selected
+arc at \(v\).
+
+Triangles with one selected arc identify that arc uniquely. They are
+needed at most twice per selected arc, once for its own class and once
+for the unique vertex at forward distance \(r+1\) behind its tail.
+In the latter case the selected length is \(2r\), so \(r-1\ge2\)
+paths suffice. Each triangle with two selected arcs identifies its
+initial \(u\) as the head of the sole base arc. Triangles with three
+selected arcs come from distinct classes. Thus the classes give at
+least \(r\) distinct triangles. Adding all arcs of length \(r\) to
+the base graph gives exactly \(r\).
+\end{proof}
+
+\section{The forward-distance bound}
+
+\begin{theorem}
+Let \(n\ge15\) and \(r=\lceil n/3\rceil\). If an oriented graph on
+\(n\) vertices has minimum outdegree at least \(r\) and admits a cyclic
+labeling in which every arc has forward length at most \(r+2\), then
+it contains a directed triangle.
+\end{theorem}
+
+\begin{proof}
+Choose three cyclic gaps \(g_0,g_1,g_2\) with \(5\le g_j\le r\) and
+\(\sum g_j=n\), which exist since \(15\le n\le3r\). Take five consecutive
+vertices at the start of each gap. Label them \((i,j)\) with
+\(0\le i\le4\), where \(j\) is the gap index modulo three. For each
+selected vertex in gap \(j\), consider the seven possible outgoing
+arcs of lengths \(g_j+d\) for \(-4\le d\le2\). These are distinct legal
+lengths in \([1,r+2]\). At most two of these arcs can be absent since
+there are only \(r+2\) possible outgoing lengths in the entire graph.
+
+Let \(x_{i,j,d}\) indicate that this arc is absent. If \(i+d\in[0,4]\),
+the arc ends at \((i+d,j+1)\). For every \(i_0,i_1,i_2\in[0,4]\) whose
+cyclic differences \(d_j=i_{j+1}-i_j\) lie in \([-4,2]\), a triangle-free
+graph satisfies
+\[
+    x_{i_0,0,d_0}\ \lor\ x_{i_1,1,d_1}\ \lor\ x_{i_2,2,d_2}.
+\]
+The omission limit gives a negative clause for each triple of variables
+in a row. There are 105 variables, \(15\binom73=525\) row clauses and
+80 triangle clauses. The archived DRAT refutation of these 605 clauses
+is checked by DRAT-trim \cite{drat}. Thus the hypothesized graph
+cannot be triangle-free.
+\end{proof}
+
+The same cyclic labeling gives a short direct proof for \(n=3r\) and
+maximum forward length \(r+1\), with \(r\ge3\). For a triangle-free
+graph, every translate of the directed triangle with ordered lengths
+\((r-1,r,r+1)\) must lose an arc. Counting across translates, the total
+number of omissions among those three lengths is at least \(n\).
+Each vertex has at most one omission in all \(r+1\) lengths, so equality
+holds, with no omissions at length \(r-2\). Every ordered permutation
+of the mixed lengths therefore loses exactly one arc per translate.
+An omission of step \(r\) at \(u\) forces both steps \(r-1,r+1\)
+to survive at \(u+r\), by using the two mixed triangles with step \(r\)
+first. Hence step \(r\) is also omitted at \(u+r\). In each residue
+triple at least one step \(r\) must be omitted. Propagation forces all
+steps \(r\) to be omitted, so every cycle with lengths
+\((r-2,r+1,r+1)\) survives.
+
+\section{Search at order 153}
+
+The public SAT project reports closing the orders through 152 and lists
+153 as its first remaining order \cite{campaign}. To search directly,
+we encoded all allowed arcs for \(n=153\) with maximum forward length
+\(51+s\), starting with \(s=0,1,2\). Here any directed triangle in
+the host has total length 153 and uses only steps at least \(51-2s\).
+Thus all shorter arcs can be kept. The encoding allows at most \(s\)
+omitted arcs per row among the remaining lengths. The order-153
+formula for \(s=2\) has 2,601 variables and 4,947 clauses and a separate
+checked refutation. The wider cases \(s=3,4\) remained unresolved at
+300,000 and 100,000 conflicts respectively.
+
+We also tested 2.4 million swap proposals across eight seeds, maintaining
+outdegree 51 and orientation at each accepted state. The forward-length
+caps for ordinary moves ranged from 52 to 128, with longer steps allowed
+in six runs. A move can replace an arc in a single row, or replace two
+arcs to repair a reciprocal pair. The starting graph with steps
+\(1,\ldots,51\) has exactly 51 directed triangles, one in each residue
+class modulo 51. The best genuinely changed graph visited had 52.
+All recorded improvements were checked by direct triangle enumeration.
+This search produced no counterexample.
+
+For context, Hamidoune's theorem covers vertex-symmetric graphs
+\cite{ham}, and circular interval digraph results use constraints on
+the intervals spanned by arcs \cite{css}. The deletion theorem here
+allows arbitrary new arcs and the forward-distance theorem allows any
+subset of the arcs in the prescribed band. Searches of indexed
+literature and public X results located partial results, including a
+fixed-outdegree-six announcement \cite{six}. The general triangle
+case remains open.
+
+\begin{thebibliography}{9}
+\bibitem{hkn}
+J.~Hladk\'y, D.~Kr\'al', and S.~Norin, \emph{Counting flags in
+triangle-free digraphs}, \href{https://arxiv.org/abs/0908.2791}{arXiv:0908.2791}.
+\bibitem{drat}
+N.~Wetzler, M.~J.~H.~Heule, and W.~A.~Hunt Jr.,
+\emph{DRAT-trim},
+\href{https://doi.org/10.1007/978-3-319-09284-3_31}{SAT 2014, 422--429}.
+\bibitem{campaign}
+\emph{Attack log for Caccetta--H\"aggkvist directed triangles},
+\href{https://github.com/wustep/maths/blob/main/problems/caccetta-haggkvist-k3/ATTACK.md}{wustep/maths}.
+\bibitem{ham}
+Y.~O.~Hamidoune, \emph{On iterated image size for point-symmetric relations},
+\href{https://arxiv.org/abs/0704.0459}{arXiv:0704.0459}.
+\bibitem{css}
+M.~Chudnovsky, P.~Seymour, and B.~Sullivan, \emph{Cycles in dense digraphs},
+\href{https://web.math.princeton.edu/~mchudnov/kover2.pdf}{author manuscript}.
+\bibitem{six}
+Fixed-outdegree-six announcement, \href{https://x.com/jjpcodes/status/2079543801387815133}{X, 21 July 2026}.
+\end{thebibliography}
+\end{document}
